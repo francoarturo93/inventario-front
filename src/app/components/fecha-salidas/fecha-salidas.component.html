@@ -1,0 +1,37 @@
+<div class="fecha-entradas-container">
+  <h2>Buscar Salidas por Fecha</h2>
+
+  <!-- Formulario para ingresar la fecha -->
+  <form [formGroup]="fechaForm" (ngSubmit)="buscarSalidasPorFecha()">
+    <div class="form-group">
+      <label for="fecha">Fecha (dd-MM-yy):</label>
+      <input id="fecha" type="date" formControlName="fecha" class="input-fecha">
+    </div>
+
+    <button type="submit" class="btn-buscar">Buscar</button>
+  </form>
+
+  <!-- Mostrar los resultados -->
+  <div *ngIf="salidas.length > 0" class="entradas-encontradas">
+    <h3>Salidas encontradas:</h3>
+    <ul>
+      <li *ngFor="let salida of salidas" class="entrada-item">
+        <div class="entrada-detalle">
+          <strong>Producto ID:</strong> {{ salida.productoId }}
+        </div>
+        <div class="entrada-detalle">
+          <strong>Producto Nombre:</strong> {{ salida.nombre }}
+        </div>
+        <div class="entrada-detalle">
+          <strong>Cantidad Salida:</strong> {{ salida.cantidadSalida }}
+        </div>
+        <div class="entrada-detalle">
+          <strong>Fecha:</strong> {{ salida.fechaSalida }}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="salidas.length === 0" class="no-entradas">
+    No se encontraron entradas para la fecha seleccionada.
+  </div>
+</div>

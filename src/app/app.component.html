@@ -1,0 +1,21 @@
+<div class="sidebar-container" [class.collapsed]="isCollapsed">
+  <nav class="sidebar">
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      &#9776; <!-- Ícono de hamburguesa -->
+    </button>
+    <ul>
+      <li><a routerLink="/crear-productos">Crear Productos</a></li>
+      <li><a routerLink="/registrar-entrada">Registrar Entradas</a></li>
+      <li><a routerLink="/registrar-salida">Registrar Salidas</a></li>
+      <li><a routerLink="/listar-productos">Listar Productos</a></li>
+      <li><a routerLink="/listar-categorias">Listar Categorías</a></li>
+      <li><a routerLink="/fecha-entradas">Fechas Entradas</a></li>
+      <li><a routerLink="/fecha-salidas">Fechas Entradas</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <!-- Aquí se inyectan los componentes -->
+    <router-outlet></router-outlet>
+  </main>
+</div>

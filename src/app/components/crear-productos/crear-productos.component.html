@@ -1,0 +1,22 @@
+<form [formGroup]="productoForm" (ngSubmit)="crearProducto()">
+  <div>
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre">
+  </div>
+  <div>
+    <label for="precio">Precio</label>
+    <input id="precio" formControlName="precio" type="number">
+  </div>
+  <div>
+    <label for="entradas">Entradas</label>
+    <input id="entradas" formControlName="entradas" type="number">
+  </div>
+  <div>
+    <label for="categoria">Categoría</label>
+    <select id="categoria" formControlName="categoria"> <!-- Asegúrate de usar 'categoriaId' -->
+      <option value="" disabled selected>Selecciona una categoría</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+    </select>
+  </div>
+  <button type="submit">Crear Producto</button>
+</form>
